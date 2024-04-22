@@ -19,3 +19,8 @@ def main_page(driver):
     driver.get(Urls.URL)
     mp = MainPage(driver)
     return mp
+
+@pytest.fixture(scope='function')
+def header_page(driver):
+    hp = HeaderPage(driver)
+    return hp
