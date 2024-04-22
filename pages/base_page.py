@@ -38,3 +38,9 @@ class BasePage:
         method, locator = locator_num
         locator = locator.format(num)
         return method, locator
+
+    @allure.step('Выбрать элемент из выпадающего списка')
+    def select_element_from_list(self, locator_menu, locator_item):
+        self.click_to_element(locator_menu)
+        self.scroll_down(locator_item)
+        self.click_to_element(locator_item)
