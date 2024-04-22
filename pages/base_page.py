@@ -22,3 +22,8 @@ class BasePage:
     def get_text_from_element(self, locator):
         element = self.find_element_with_wait(locator)
         return element.text
+
+    @allure.step('Добавить данные')
+    def add_text_to_element(self, locator, text):
+        element = self.find_element_with_wait(locator)
+        element.send_keys(text)
