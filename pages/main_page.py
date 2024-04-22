@@ -22,3 +22,7 @@ class MainPage(BasePage):
     def click_to_question_and_get_answer_text(self, question, answer, num):
         self.click_to_element(self.set_number_to_locator(question, num))
         return self.get_text_from_element(self.set_number_to_locator(answer, num))
+
+    @allure.step('Проверить, что ответ корректный')
+    def check_answer_correct(self, result, expected):
+        return result == expected
