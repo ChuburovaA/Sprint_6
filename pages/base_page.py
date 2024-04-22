@@ -49,3 +49,7 @@ class BasePage:
     def wait_element(self, locator, time=10):
         self.driver.switch_to.window(self.driver.window_handles[1])
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator))
+
+    @allure.step('Получить текущую урлу')
+    def get_current_url(self):
+        return self.driver.current_url
