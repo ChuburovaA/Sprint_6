@@ -17,3 +17,8 @@ class MainPage(BasePage):
     @allure.step('Проскролить до списка "Вопросы о важном"')
     def scroll(self):
         self.scroll_down(MainPageLocators.MAIN_PAGE_DOWN_QUESTION_LOCATOR)
+
+    @allure.step('Кликнуть на вопрос из списка и просмотреть ответ')
+    def click_to_question_and_get_answer_text(self, question, answer, num):
+        self.click_to_element(self.set_number_to_locator(question, num))
+        return self.get_text_from_element(self.set_number_to_locator(answer, num))
