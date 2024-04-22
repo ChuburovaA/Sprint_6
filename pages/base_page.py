@@ -44,3 +44,8 @@ class BasePage:
         self.click_to_element(locator_menu)
         self.scroll_down(locator_item)
         self.click_to_element(locator_item)
+
+    @allure.step('Дождаться элемента на другой странице')
+    def wait_element(self, locator, time=10):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator))
