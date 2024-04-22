@@ -32,3 +32,9 @@ class BasePage:
     def scroll_down(self, locator):
         element = self.find_element_with_wait(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    @allure.step('Ввести номер в элемент')
+    def set_number_to_locator(self, locator_num, num):
+        method, locator = locator_num
+        locator = locator.format(num)
+        return method, locator
