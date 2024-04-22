@@ -24,3 +24,8 @@ def main_page(driver):
 def header_page(driver):
     hp = HeaderPage(driver)
     return hp
+
+@pytest.fixture(scope='function')
+def order_page(driver):
+    op = OrderPage(driver)
+    return op
