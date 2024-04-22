@@ -16,3 +16,8 @@ class HeaderPage(BasePage):
     @allure.step('Кликнуть на лого Самоката')
     def click_logo_scooter(self):
         self.click_to_element(HeaderPageLocators.HEADER_PAGE_LOGO_SCOOTER)
+
+    @allure.step('Получить текст на главной')
+    def get_text(self):
+        text = self.get_text_from_element(HeaderPageLocators.HEADER_PAGE_TEXT)
+        return text
