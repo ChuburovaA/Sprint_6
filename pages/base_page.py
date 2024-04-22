@@ -10,7 +10,7 @@ class BasePage:
 
     @allure.step('Найти и убедиться, что элемент виден')
     def find_element_with_wait(self, locator):
-        WebDriverWait(self.driver, 7).until(expected_conditions.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
     @allure.step('Кликнуть на элемент')
@@ -45,10 +45,12 @@ class BasePage:
         self.scroll_down(locator_item)
         self.click_to_element(locator_item)
 
+
     @allure.step('Дождаться элемента на другой странице')
     def wait_element(self, locator, time=10):
         self.driver.switch_to.window(self.driver.window_handles[1])
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator))
+
 
     @allure.step('Получить текущую урлу')
     def get_current_url(self):

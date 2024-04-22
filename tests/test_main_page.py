@@ -22,6 +22,7 @@ class TestMainPage:
         ]
     )
     def test_questions(self, main_page, q_num, expected_result):
+
         main_page.get_url(Urls.URL)
         main_page.click_button_cookie()
         main_page.scroll()
