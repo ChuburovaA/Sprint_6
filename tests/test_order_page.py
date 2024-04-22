@@ -17,3 +17,9 @@ class TestOrderPage:
                                OrderPageLocators.ORDER_PAGE_GREY_CHECKBOX,
                                'Sorry, ill be 10min late')
                               ])
+    def test_to_order(self, main_page, order_page, button, rent, checkbox, comment):
+        main_page.click_button_cookie()
+        order_page.scroll_down(button)
+        order_page.click_to_element(button)
+        order_page.set_form_to_order(rent, checkbox, comment)
+        assert main_page.check_order_button()
