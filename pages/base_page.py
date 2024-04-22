@@ -27,3 +27,8 @@ class BasePage:
     def add_text_to_element(self, locator, text):
         element = self.find_element_with_wait(locator)
         element.send_keys(text)
+
+    @allure.step('Скролл до нужного элемента')
+    def scroll_down(self, locator):
+        element = self.find_element_with_wait(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
