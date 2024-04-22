@@ -13,3 +13,7 @@ class MainPage(BasePage):
     @allure.step('Кликнуть на кнопку принятия кук')
     def click_button_cookie(self):
         return self.click_to_element(MainPageLocators.MAIN_PAGE_COOKIE_BUTTON)
+
+    @allure.step('Проскролить до списка "Вопросы о важном"')
+    def scroll(self):
+        self.scroll_down(MainPageLocators.MAIN_PAGE_DOWN_QUESTION_LOCATOR)
