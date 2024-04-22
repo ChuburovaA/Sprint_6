@@ -10,5 +10,10 @@ class BasePage:
 
     @allure.step('Найти и убедиться, что элемент виден')
     def find_element_with_wait(self, locator):
-        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 7).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
+
+    @allure.step('Кликнуть на элемент')
+    def click_to_element(self, locator):
+        element = self.find_element_with_wait(locator)
+        element.click()
