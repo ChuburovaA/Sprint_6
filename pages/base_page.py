@@ -17,3 +17,8 @@ class BasePage:
     def click_to_element(self, locator):
         element = self.find_element_with_wait(locator)
         element.click()
+
+    @allure.step('Получить текст элемента')
+    def get_text_from_element(self, locator):
+        element = self.find_element_with_wait(locator)
+        return element.text
