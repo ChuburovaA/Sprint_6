@@ -26,3 +26,7 @@ class MainPage(BasePage):
     @allure.step('Проверить, что ответ корректный')
     def check_answer_correct(self, result, expected):
         return result == expected
+
+    @allure.step('"Посмотреть статус"')
+    def check_order_button(self):
+        return self.find_element_with_wait(OrderPageLocators.ORDER_PAGE_CHECK_ORDER_BUTTON)
