@@ -13,3 +13,9 @@ def driver():
     yield driver
 
     driver.quit()
+
+@pytest.fixture(scope='function')
+def main_page(driver):
+    driver.get(Urls.URL)
+    mp = MainPage(driver)
+    return mp
