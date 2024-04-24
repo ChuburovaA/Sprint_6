@@ -23,6 +23,12 @@ class MainPage(BasePage):
         self.click_to_element(self.set_number_to_locator(question, num))
         return self.get_text_from_element(self.set_number_to_locator(answer, num))
 
+    @allure.step("Кликнуть на стрелочку")
+    def click_to_arrow(self, number):
+        method, locator = MainPageLocators.MAIN_PAGE_QUESTION_LOCATORS
+        locator = locator.format(number)
+        self.click_to_element((method, locator))
+
     @allure.step('Проверить, что ответ корректный')
     def check_answer_correct(self, result, expected):
         return result == expected
