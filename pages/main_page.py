@@ -29,6 +29,12 @@ class MainPage(BasePage):
         locator = locator.format(number)
         self.click_to_element((method, locator))
 
+    @allure.step("Получить текст ответа")
+    def get_text_under_arrow(self, number):
+        method, locator = MainPageLocators.MAIN_PAGE_ANSWER_LOCATOR
+        locator = locator.format(number)
+        return self.get_text_from_element((method, locator))
+
     @allure.step('Проверить, что ответ корректный')
     def check_answer_correct(self, result, expected):
         return result == expected
