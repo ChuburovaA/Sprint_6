@@ -18,11 +18,6 @@ class MainPage(BasePage):
     def scroll(self):
         self.scroll_down(MainPageLocators.MAIN_PAGE_DOWN_QUESTION_LOCATOR)
 
-    @allure.step('Кликнуть на вопрос из списка и просмотреть ответ')
-    def click_to_question_and_get_answer_text(self, question, answer, num):
-        self.click_to_element(self.set_number_to_locator(question, num))
-        return self.get_text_from_element(self.set_number_to_locator(answer, num))
-
     @allure.step("Кликнуть на стрелочку")
     def click_to_arrow(self, number):
         method, locator = MainPageLocators.MAIN_PAGE_QUESTION_LOCATORS
@@ -35,9 +30,6 @@ class MainPage(BasePage):
         locator = locator.format(number)
         return self.get_text_from_element((method, locator))
 
-    @allure.step('Проверить, что ответ корректный')
-    def check_answer_correct(self, result, expected):
-        return result == expected
 
     @allure.step('"Посмотреть статус"')
     def check_order_button(self):
