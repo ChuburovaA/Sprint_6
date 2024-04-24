@@ -6,7 +6,7 @@ from conftest import driver, main_page, order_page
 
 @allure.feature('Заказ самоката на сайте "Яндекс Самокат"')
 class TestOrderPage:
-    @allure.story('Заполнение форм "Для кого самокат" и "Про аренду"')
+    @allure.title('Заполнение форм "Для кого самокат" и "Про аренду"')
     @pytest.mark.parametrize("button, rent, checkbox, comment",
                              [(OrderPageLocators.ORDER_BUTTON_UP,
                                OrderPageLocators.ORDER_PAGE_RENT_TO_ONE_DAY,
