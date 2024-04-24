@@ -22,14 +22,9 @@ class TestMainPage:
         ]
     )
     def test_questions(self, main_page, q_num, expected_result):
-
         main_page.get_url(Urls.URL)
         main_page.click_button_cookie()
         main_page.scroll()
-        result = main_page.click_to_question_and_get_answer_text(
-            MainPageLocators.MAIN_PAGE_QUESTION_LOCATORS,
-            MainPageLocators.MAIN_PAGE_ANSWER_LOCATOR,
-            q_num
-        )
-
-        assert main_page.check_answer_correct(result, expected_result)
+        main_page.click_to_arrow(q_num)
+        answer = main_page.get_text_under_arrow(q_num)
+        assert answer == expected_result
